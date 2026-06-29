@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Taxi Rosa Universitario</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <section id="screen-splash" class="screen active">
+            <div class="splash-content">
+                <div class="logo-container">
+                    <i class="fa-solid fa-car-side logo-icon"></i>
+                </div>
+                <h1 class="brand-title">TAXI <span class="brand-highlight">ROSA</span></h1>
+                <h2 class="brand-subtitle">UNIVERSITARIO</h2>
+                <p class="brand-slogan"><i class="fa-solid fa-heart" style="color: #fff; font-size: 12px; margin-right: 5px;"></i> Tu <strong>seguridad</strong> comienza aquí.</p>
+                
+                <div class="loader-container">
+                    <div class="loader"></div>
+                    <p>Cargando...</p>
+                </div>
+            </div>
+        </section>
+        <section id="screen-home" class="screen">
+            <div class="map-bg"></div>
+            <header class="app-header glass">
+                <div class="user-info">
+                    <div class="avatar">
+                        <img src="https://ui-avatars.com/api/?name=Valeria+R&background=FFB6C1&color=E83D6F" alt="User">
+                    </div>
+                    <div>
+                        <h3>¡Hola, Valeria! <span class="wave">👋</span></h3>
+                        <p>Estudiante de Administración <span class="badge">UTP</span></p>
+                    </div>
+                </div>
+                <div class="notification-btn">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="dot"></span>
+                </div>
+            </header>
+            <div class="safe-status glass">
+                <i class="fa-solid fa-shield-halved"></i>
+                <div class="status-text">
+                    <strong>Todo seguro para tu viaje</strong>
+                    <span>Estamos contigo 24/7</span>
+                </div>
+                <i class="fa-solid fa-chevron-right"></i>
+            </div>
+            <div class="bottom-sheet">
+                <div class="handle"></div>
+                <div class="input-group search-destination" onclick="app.navigateTo('screen-destination')">
+                    <i class="fa-solid fa-location-dot" style="color: var(--primary);"></i>
+                    <div>
+                        <strong>¿A dónde quieres ir?</strong>
+                        <p>Ingresa tu destino</p>
+                    </div>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div> 
+                <div class="quick-actions">
+                    <div class="action-item">
+                        <div class="icon-circle"><i class="fa-solid fa-house"></i></div>
+                        <span>Casa</span>
+                    </div>
+                    <div class="action-item">
+                        <div class="icon-circle"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <span>Universidad</span>
+                    </div>
+                    <div class="action-item">
+                        <div class="icon-circle"><i class="fa-solid fa-star"></i></div>
+                        <span>Favoritos</span>
+                    </div>
+                    <div class="action-item" onclick="app.navigateTo('screen-history')">
+                        <div class="icon-circle"><i class="fa-regular fa-clock"></i></div>
+                        <span>Recientes</span>
+                    </div>
+                </div>
+                <div class="promo-card">
+                    <div class="promo-icon"><i class="fa-solid fa-shield-heart"></i></div>
+                    <div class="promo-text">
+                        <strong>Viaja segura siempre</strong>
+                        <p>Comparte tu viaje y usa el botón SOS.</p>
+                    </div>
+                    <button class="btn-small">Más info</button>
+                </div>
+            </div>
+            <nav class="bottom-nav">
+                <div class="nav-item active">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Inicio</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>Seguridad</span>
+                </div>
+                <div class="nav-item nav-center" onclick="app.navigateTo('screen-destination')">
+                    <div class="center-btn">
+                        <i class="fa-solid fa-taxi"></i>
+                    </div>
+                    <span>Solicitar</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fa-regular fa-message"></i>
+                    <span>Mensajes</span>
+                </div>
+                <div class="nav-item" onclick="app.navigateTo('screen-rewards')">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Perfil</span>
+                </div>
+            </nav>
+        </section>
+        <section id="screen-destination" class="screen">
+            <header class="app-header simple-header glass">
+                <button class="back-btn" onclick="app.navigateTo('screen-home')"><i class="fa-solid fa-arrow-left"></i></button>
+                <h2>Ruta Segura</h2>
+                <button class="help-btn"><i class="fa-solid fa-headset"></i> Soporte</button>
+            </header>
+            <div class="map-bg route-map">
+                <div class="route-line"></div>
+                <div class="marker origin"></div>
+                <div class="marker dest"></div>
+            </div>
+            <div class="bottom-sheet expanded">
+                <div class="route-selector">
+                    <div class="route-card active">
+                        <div class="route-header">
+                            <span class="tag recommended"><i class="fa-solid fa-check-circle"></i> RECOMENDADA</span>
+                            <h4>Ruta más segura</h4>
+                        </div>
+                        <div class="route-stats">
+                            <div><i class="fa-regular fa-clock"></i> 15 min</div>
+                            <div><i class="fa-solid fa-route"></i> 5.4 km</div>
+                        </div>
+                        <div class="route-features">
+                            <span class="feature-icon" title="Calles iluminadas"><i class="fa-regular fa-lightbulb"></i></span>
+                            <span class="feature-icon" title="Cámaras de seguridad"><i class="fa-solid fa-video"></i></span>
+                            <span class="feature-icon" title="Serenazgo activo"><i class="fa-solid fa-person-military-pointing"></i></span>
+                        </div>
+                        <div class="price">S/ 7.00</div>
+                    </div>
+                </div>
+                <div class="match-offer">
+                    <div class="match-icon"><i class="fa-solid fa-user-group"></i></div>
+                    <div class="match-text">
+                        <strong>¿Deseas compartir este viaje?</strong>
+                        <p>Encontramos estudiantes con una ruta similar.</p>
+                    </div>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="match-toggle" checked>
+                        <label for="match-toggle"></label>
+                    </div>
+                </div>
+                <div class="trip-summary">
+                    <div class="summary-row">
+                        <div class="location-dot origin"></div>
+                        <div class="location-text">
+                            <small>Desde (Tu ubicación)</small>
+                            <p>UTP Sede Ica</p>
+                        </div>
+                    </div>
+                    <div class="summary-line"></div>
+                    <div class="summary-row">
+                        <div class="location-dot dest"></div>
+                        <div class="location-text">
+                            <small>Hasta</small>
+                            <p>San Joaquín - Pasaje Tarifa</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-primary full-width mt-4" onclick="app.startTrip()">Confirmar Viaje Seguro <i class="fa-solid fa-arrow-right ml-2"></i></button>
+            </div>
+        </section>
+        <section id="screen-trip" class="screen">
+            <div class="map-bg active-map">
+                <div class="car-marker"><i class="fa-solid fa-car-side"></i></div>
+            </div>
+
+            <div class="trip-top-bar glass">
+                <button class="back-btn"><i class="fa-solid fa-bars"></i></button>
+                <div class="trip-status-header">
+                    <strong>Viaje en curso</strong>
+                    <span>Tu seguridad es nuestra prioridad</span>
+                </div>
+            </div>
+
+            <div class="live-monitoring glass">
+                <i class="fa-solid fa-shield-check" style="color: var(--success);"></i>
+                <span>Monitoreo 24/7 activo</span>
+            </div>
+
+            <div class="bottom-sheet trip-sheet">
+                <div class="handle"></div>
+                
+                <div class="trip-driver-info">
+                    <div class="driver-avatar">
+                        <img src="https://ui-avatars.com/api/?name=Rosa+M&background=E83D6F&color=fff" alt="Driver">
+                        <div class="rating-badge"><i class="fa-solid fa-star"></i> 4.9</div>
+                    </div>
+                    <div class="driver-details">
+                        <h4>Rosa M. <i class="fa-solid fa-circle-check" style="color: var(--primary);"></i></h4>
+                        <p>Toyota Yaris 2020 • Color rosado</p>
+                        <div class="plate-number">ABC-123</div>
+                    </div>
+                    <div class="driver-actions">
+                        <button class="icon-btn"><i class="fa-solid fa-comment-dots"></i></button>
+                        <button class="icon-btn"><i class="fa-solid fa-phone"></i></button>
+                    </div>
+                </div>
+
+                <div class="trip-progress">
+                    <div class="progress-stats">
+                        <div class="stat">
+                            <small>Tiempo restante</small>
+                            <strong>12 min</strong>
+                        </div>
+                        <div class="stat">
+                            <small>Velocidad</small>
+                            <strong>36 km/h</strong>
+                        </div>
+                        <div class="stat">
+                            <small>Llegada aprox.</small>
+                            <strong>10:47 p.m.</strong>
+                        </div>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="trip-progress-bar" style="width: 30%;"></div>
+                    </div>
+                </div>
+
+                <div class="trip-safety-actions">
+                    <button class="safety-btn share"><i class="fa-solid fa-share-nodes"></i> Compartir ruta</button>
+                    <button class="safety-btn sos" onclick="app.finishTrip()"><i class="fa-solid fa-bell"></i> Botón SOS</button>
+                    <button class="safety-btn chat" onclick="app.navigateTo('screen-camera')"><i class="fa-solid fa-video"></i> Cámaras</button>
+                </div>
+            </div>
+        </section>
+        <section id="screen-arrival" class="screen">
+            <div class="arrival-content">
+                <div class="success-check">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <h2>¡Has llegado segura!</h2>
+                <p>Gracias por viajar con Taxi Rosa Universitario.</p>
+
+                <div class="arrival-driver-card glass mt-4">
+                    <div class="driver-avatar">
+                        <img src="https://ui-avatars.com/api/?name=Rosa+M&background=E83D6F&color=fff" alt="Driver">
+                    </div>
+                    <div class="driver-details">
+                        <h4>Rosa M.</h4>
+                        <p>Toyota Yaris 2020</p>
+                    </div>
+                </div>
+
+                <div class="rating-section mt-4">
+                    <h3>Califica tu viaje</h3>
+                    <p class="text-sm">Tu opinión nos ayuda a mantener un servicio seguro.</p>
+                    
+                    <div class="stars">
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+
+                    <div class="feedback-tags">
+                        <span class="tag">Conductora</span>
+                        <span class="tag">Limpieza</span>
+                        <span class="tag">Seguridad</span>
+                        <span class="tag">Puntualidad</span>
+                    </div>
+
+                    <textarea placeholder="Escribe un comentario (opcional)..." class="mt-4"></textarea>
+                </div>
+
+                <button class="btn-primary full-width mt-4" onclick="app.resetApp()">Enviar calificación</button>
+                <button class="btn-text mt-2" onclick="app.resetApp()">Omitir por ahora</button>
+            </div>
+        </section>
+
+        <!-- Screen: Rewards / Loyalty -->
+        <section id="screen-rewards" class="screen">
+            <header class="app-header simple-header glass">
+                <button class="back-btn" onclick="app.navigateTo('screen-home')"><i class="fa-solid fa-arrow-left"></i></button>
+                <h2>Programa de Beneficios</h2>
+                <div style="width:40px;"></div> <!-- Spacer -->
+            </header>
+            <div class="rewards-content">
+                <div class="reward-circle">
+                    <svg viewBox="0 0 36 36" class="circular-chart pink">
+                        <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                        <path class="circle" stroke-dasharray="80, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                    </svg>
+                    <div class="circle-content">
+                        <span class="trip-count">4/5</span>
+                        <span class="trip-label">Viajes</span>
+                    </div>
+                </div>
+                <h3 class="text-center mt-4">¡Estás muy cerca!</h3>
+                <p class="text-center text-sm">Solo falta 1 viaje para obtener tu próximo viaje <strong>GRATIS</strong>.</p>
+                
+                <div class="stats-row mt-4">
+                    <div class="stat-box">
+                        <i class="fa-solid fa-star" style="color:var(--warning);"></i>
+                        <strong>250 pts</strong>
+                        <span>Puntos Acumulados</span>
+                    </div>
+                    <div class="stat-box">
+                        <i class="fa-solid fa-car" style="color:var(--primary);"></i>
+                        <strong>8</strong>
+                        <span>Viajes Restantes</span>
+                    </div>
+                </div>
+                
+                <h4 class="mt-4">Beneficios Disponibles</h4>
+                <div class="benefits-list mt-2">
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fa-solid fa-percent"></i></div>
+                        <div>
+                            <strong>Descuentos Exclusivos</strong>
+                            <p>Promociones para estudiantes</p>
+                        </div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon" style="background:#E8F5E9; color:var(--success);"><i class="fa-solid fa-shield-halved"></i></div>
+                        <div>
+                            <strong>Seguro Incluido</strong>
+                            <p>Viaja protegida siempre</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screen: History -->
+        <section id="screen-history" class="screen">
+            <header class="app-header simple-header glass">
+                <button class="back-btn" onclick="app.navigateTo('screen-home')"><i class="fa-solid fa-arrow-left"></i></button>
+                <h2>Mis Viajes</h2>
+                <div style="width:40px;"></div>
+            </header>
+            <div class="history-list">
+                <div class="history-item">
+                    <div class="history-date">Hoy, 10:30 a.m.</div>
+                    <div class="history-details">
+                        <div class="history-route">
+                            <strong>UTP Sede Ica</strong>
+                            <i class="fa-solid fa-arrow-right"></i>
+                            <strong>San Joaquín</strong>
+                        </div>
+                        <div class="history-price">S/ 7.00</div>
+                    </div>
+                    <div class="history-driver">
+                        <img src="https://ui-avatars.com/api/?name=Rosa+M&background=E83D6F&color=fff" alt="Driver">
+                        <span>Conductora: Rosa M.</span>
+                        <span class="history-status completed">Completado</span>
+                    </div>
+                </div>
+                <div class="history-item">
+                    <div class="history-date">Ayer, 6:15 p.m.</div>
+                    <div class="history-details">
+                        <div class="history-route">
+                            <strong>Plaza del Sol</strong>
+                            <i class="fa-solid fa-arrow-right"></i>
+                            <strong>UTP Sede Ica</strong>
+                        </div>
+                        <div class="history-price">S/ 5.00</div>
+                    </div>
+                    <div class="history-driver">
+                        <img src="https://ui-avatars.com/api/?name=Carla+T&background=FFB6C1&color=C2185B" alt="Driver">
+                        <span>Conductora: Carla T.</span>
+                        <span class="history-status completed">Completado</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screen: Camera 360 Overlay -->
+        <section id="screen-camera" class="screen">
+            <div class="camera-layout">
+                <div class="camera-header">
+                    <button class="back-btn" onclick="app.navigateTo('screen-trip')"><i class="fa-solid fa-xmark"></i></button>
+                    <div class="rec-indicator"><span class="rec-dot"></span> REC</div>
+                </div>
+                
+                <div class="camera-view interior">
+                    <div class="camera-label">Cámara Interior</div>
+                    <div class="camera-overlay-grid"></div>
+                </div>
+                
+                <div class="camera-view exterior">
+                    <div class="camera-label">Cámara Exterior (Frontal)</div>
+                    <div class="camera-overlay-grid"></div>
+                </div>
+                
+                <div class="camera-controls">
+                    <button class="btn-primary full-width" style="background:var(--danger);" onclick="app.finishTrip()">ALERTA SOS</button>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <button id="theme-toggle" class="theme-toggle-btn" onclick="app.toggleTheme()">
+        <i class="fa-solid fa-moon"></i>
+    </button>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
