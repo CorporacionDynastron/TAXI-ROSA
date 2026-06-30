@@ -961,6 +961,7 @@ body.dark-mode .history-status.completed { background: rgba(76, 175, 80, 0.2); }
 .flex { display: flex; }
 .flex-col { flex-direction: column; }
 .items-center { align-items: center; }
+.items-start { align-items: flex-start; }
 .justify-between { justify-content: space-between; }
 .justify-center { justify-content: center; }
 .gap-2 { gap: 8px; }
@@ -1036,6 +1037,9 @@ body.dark-mode .history-status.completed { background: rgba(76, 175, 80, 0.2); }
 .border-gray-100 { border-color: #F3F4F6; }
 .border-gray-800 { border-color: #1F2937; }
 .border-white { border-color: #FFF; }
+.border-blue-500 { border-color: #3b82f6; }
+.border-orange-500 { border-color: #f97316; }
+.text-orange-500 { color: #f97316; }
 
 .absolute { position: absolute; }
 .relative { position: relative; }
@@ -1062,6 +1066,7 @@ body.dark-mode .history-status.completed { background: rgba(76, 175, 80, 0.2); }
 .cursor-pointer { cursor: pointer; }
 
 /* Phase 4 Extras */
+.hidden { display: none; }
 .flex-1 { flex: 1 1 0%; }
 .block { display: block; }
 .overflow-x-auto { overflow-x: auto; }
@@ -1076,6 +1081,10 @@ body.dark-mode .history-status.completed { background: rgba(76, 175, 80, 0.2); }
 .ml-3 { margin-left: 12px; }
 .m-0 { margin: 0; }
 .z-10 { z-index: 10; }
+.left-4 { left: 16px; }
+.right-4 { right: 16px; }
+.top-24 { top: 96px; }
+.bottom-24 { bottom: 96px; }
 .whitespace-nowrap { white-space: nowrap; }
 .hide-scrollbar::-webkit-scrollbar { display: none; }
 .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
@@ -1086,8 +1095,14 @@ body.dark-mode .history-status.completed { background: rgba(76, 175, 80, 0.2); }
 .w-3\.5 { width: 14px; } .h-3\.5 { height: 14px; }
 .w-6 { width: 24px; }
 .w-8 { width: 32px; } .h-8 { height: 32px; }
+.w-64 { width: 256px; }
 .h-2\.5 { height: 10px; }
 .h-20 { height: 80px; }
+.mx-4 { margin-left: 16px; margin-right: 16px; }
+.min-h-screen { min-height: 100vh; }
+.rounded-2xl { border-radius: 16px; }
+.text-success { color: var(--success); }
+.text-warning { color: var(--warning); }
 .bg-transparent { background-color: transparent; }
 .bg-gray-50 { background-color: #F9FAFB; }
 .bg-blue-50 { background-color: #EFF6FF; }
