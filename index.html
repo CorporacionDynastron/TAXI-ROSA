@@ -190,6 +190,10 @@
                     <i class="fa-solid fa-user-group"></i>
                     <span>Amigos</span>
                 </div>
+                <div class="nav-item" onclick="app.navigateTo('screen-drivers')">
+                    <i class="fa-solid fa-id-card"></i>
+                    <span>Conductores</span>
+                </div>
                 <div class="nav-item" onclick="app.navigateTo('screen-profile')">
                     <i class="fa-regular fa-user"></i>
                     <span>Perfil</span>
@@ -851,6 +855,44 @@
                 </div>
                 
                 <div class="h-20"></div> <!-- padding bottom for nav -->
+            </div>
+        </section>
+
+        <!-- Screen: Favorite Drivers (NUEVO) -->
+        <section id="screen-drivers" class="screen">
+            <header class="app-header simple-header glass">
+                <button class="back-btn" onclick="app.navigateTo('screen-home')"><i class="fa-solid fa-arrow-left"></i></button>
+                <h2>Conductoras Fav</h2>
+                <button class="help-btn text-warning"><i class="fa-solid fa-star"></i></button>
+            </header>
+            <div class="p-4 pt-24 h-full overflow-y-auto bg-gray-50 dark:bg-gray-900">
+                <p class="text-sm text-muted mb-4">Tus conductoras de mayor confianza en la comunidad.</p>
+                <div class="flex flex-col gap-3">
+                    <div class="bg-white dark:bg-dark-card p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <img src="https://ui-avatars.com/api/?name=Rosa+M&background=E83D6F&color=fff" alt="Driver" class="w-12 h-12 rounded-full">
+                                <div>
+                                    <strong class="text-main">Rosa M.</strong>
+                                    <p class="text-xs text-muted"><i class="fa-solid fa-star text-warning"></i> 5.0 (120 viajes)</p>
+                                </div>
+                            </div>
+                            <button class="btn-small bg-primary text-white px-3 py-2 rounded-full"><i class="fa-solid fa-taxi mr-1"></i> Pedir</button>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-dark-card p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <img src="https://ui-avatars.com/api/?name=Carla+T&background=FFB6C1&color=C2185B" alt="Driver" class="w-12 h-12 rounded-full">
+                                <div>
+                                    <strong class="text-main">Carla T.</strong>
+                                    <p class="text-xs text-muted"><i class="fa-solid fa-star text-warning"></i> 4.9 (85 viajes)</p>
+                                </div>
+                            </div>
+                            <button class="btn-small bg-primary text-white px-3 py-2 rounded-full"><i class="fa-solid fa-taxi mr-1"></i> Pedir</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
