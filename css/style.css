@@ -1061,19 +1061,72 @@ body.dark-mode .history-status.completed { background: rgba(76, 175, 80, 0.2); }
 .no-underline { text-decoration: none; }
 .cursor-pointer { cursor: pointer; }
 
+/* Phase 4 Extras */
+.flex-1 { flex: 1 1 0%; }
+.block { display: block; }
+.overflow-x-auto { overflow-x: auto; }
+.overflow-hidden { overflow: hidden; }
+.pb-2 { padding-bottom: 8px; }
+.mt-2 { margin-top: 8px; }
+.mt-20 { margin-top: 80px; }
+.mb-1 { margin-bottom: 4px; }
+.mb-8 { margin-bottom: 32px; }
+.mr-1 { margin-right: 4px; }
+.mr-2 { margin-right: 8px; }
+.ml-3 { margin-left: 12px; }
+.m-0 { margin: 0; }
+.z-10 { z-index: 10; }
+.whitespace-nowrap { white-space: nowrap; }
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.tracking-wider { letter-spacing: 0.05em; }
+.uppercase { text-transform: uppercase; }
+.font-medium { font-weight: 500; }
+.w-3 { width: 12px; } .h-3 { height: 12px; }
+.w-3\.5 { width: 14px; } .h-3\.5 { height: 14px; }
+.w-6 { width: 24px; }
+.w-8 { width: 32px; } .h-8 { height: 32px; }
+.h-2\.5 { height: 10px; }
+.h-20 { height: 80px; }
+.bg-transparent { background-color: transparent; }
+.bg-gray-50 { background-color: #F9FAFB; }
+.bg-blue-50 { background-color: #EFF6FF; }
+.bg-green-50 { background-color: #F0FDF4; }
+.bg-orange-50 { background-color: #FFF7ED; }
+.bg-gray-200 { background-color: #E5E7EB; }
+.border-green-100 { border-color: #DCFCE7; }
+.border-b { border-bottom-width: 1px; border-bottom-style: solid; }
+.border-none { border-style: none; }
+.outline-none { outline: 2px solid transparent; outline-offset: 2px; }
+.grayscale { filter: grayscale(100%); }
+.opacity-70 { opacity: 0.7; }
+.bg-opacity-50 { background-color: rgba(249, 250, 251, 0.5); }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
 @keyframes bounce {
   0%, 100% { transform: translateY(-25%); animation-timing-function: cubic-bezier(0.8,0,1,1); }
   50% { transform: none; animation-timing-function: cubic-bezier(0,0,0.2,1); }
 }
 .animate-bounce { animation: bounce 1s infinite; }
 
-/* Dark Mode Overrides for Phase 3 */
+/* Dark Mode Overrides for Phase 3/4 */
 body.dark-mode .dark\:bg-dark-card { background-color: #16213E; }
 body.dark-mode .dark\:border-gray-800 { border-color: #333; }
 body.dark-mode .bg-white { background-color: #1A1A2E; }
+body.dark-mode .bg-gray-50 { background-color: #111827; }
+body.dark-mode .bg-blue-50, 
+body.dark-mode .bg-green-50, 
+body.dark-mode .bg-orange-50 { background-color: #1A1A2E; }
+body.dark-mode .bg-gray-200 { background-color: #374151; }
+body.dark-mode .dark\:bg-gray-800 { background-color: #1F2937; }
+body.dark-mode .dark\:bg-gray-900 { background-color: #111827; }
 
 /* PC / Desktop Responsive Adjustments FIXED */
 @media (min-width: 768px) {
+    .md\:flex { display: flex !important; }
+    .md\:hidden { display: none !important; }
+    .md\:mt-24 { margin-top: 96px; }
     .bottom-sheet {
         width: 400px;
         left: 40px;

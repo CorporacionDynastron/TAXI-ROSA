@@ -44,7 +44,79 @@
                     <span class="dot"></span>
                 </div>
             </header>
-            <div class="safe-status glass">
+            
+            <!-- Desktop Sidebar Left: Quick Friends -->
+            <aside class="desktop-sidebar hidden md:flex flex-col gap-4 p-4 glass absolute left-4 top-24 bottom-24 w-64 rounded-2xl z-10 overflow-y-auto">
+                <h3 class="text-main mb-2"><i class="fa-solid fa-user-group text-primary"></i> Amigos Activos</h3>
+                <div class="bg-white dark:bg-dark-card p-3 rounded-xl shadow-sm flex items-center justify-between cursor-pointer" onclick="app.navigateTo('screen-friends')">
+                    <div class="flex items-center gap-3">
+                        <div class="relative">
+                            <img src="https://ui-avatars.com/api/?name=Sofia+P&background=E83D6F&color=fff" alt="Friend" class="w-10 h-10 rounded-full">
+                            <span class="absolute bottom-0 right-0 w-3 h-3 bg-success border-2 border-white dark:border-gray-800 rounded-full"></span>
+                        </div>
+                        <div>
+                            <strong>Sofia P.</strong>
+                            <p class="text-xs text-muted">Buscando taxi</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-dark-card p-3 rounded-xl shadow-sm flex items-center justify-between cursor-pointer" onclick="app.navigateTo('screen-friends')">
+                    <div class="flex items-center gap-3">
+                        <div class="relative">
+                            <img src="https://ui-avatars.com/api/?name=Luis+A&background=FFB6C1&color=C2185B" alt="Friend" class="w-10 h-10 rounded-full">
+                            <span class="absolute bottom-0 right-0 w-3 h-3 bg-warning border-2 border-white dark:border-gray-800 rounded-full"></span>
+                        </div>
+                        <div>
+                            <strong>Luis A.</strong>
+                            <p class="text-xs text-muted">En clase</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-primary-light bg-opacity-20 p-3 rounded-xl text-center cursor-pointer mt-auto" onclick="app.navigateTo('screen-friends')">
+                    <strong class="text-primary text-sm">Ver todos los amigos</strong>
+                </div>
+            </aside>
+
+            <!-- Desktop Sidebar Right: Favorite Drivers -->
+            <aside class="desktop-sidebar hidden md:flex flex-col gap-4 p-4 glass absolute right-4 top-24 bottom-24 w-64 rounded-2xl z-10 overflow-y-auto">
+                <h3 class="text-main mb-2"><i class="fa-solid fa-star text-warning"></i> Conductoras Fav</h3>
+                <div class="bg-white dark:bg-dark-card p-3 rounded-xl shadow-sm flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <img src="https://ui-avatars.com/api/?name=Rosa+M&background=E83D6F&color=fff" alt="Driver" class="w-10 h-10 rounded-full">
+                        <div>
+                            <strong>Rosa M.</strong>
+                            <p class="text-xs text-muted"><i class="fa-solid fa-star text-warning"></i> 5.0 (Ica)</p>
+                        </div>
+                    </div>
+                    <button class="btn-small bg-primary text-white px-2 py-1 rounded-full text-xs"><i class="fa-solid fa-taxi"></i></button>
+                </div>
+                <div class="bg-white dark:bg-dark-card p-3 rounded-xl shadow-sm flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <img src="https://ui-avatars.com/api/?name=Carla+T&background=FFB6C1&color=C2185B" alt="Driver" class="w-10 h-10 rounded-full">
+                        <div>
+                            <strong>Carla T.</strong>
+                            <p class="text-xs text-muted"><i class="fa-solid fa-star text-warning"></i> 4.9 (UTP)</p>
+                        </div>
+                    </div>
+                    <button class="btn-small bg-primary text-white px-2 py-1 rounded-full text-xs"><i class="fa-solid fa-taxi"></i></button>
+                </div>
+            </aside>
+
+            <!-- Weather and Status Widget -->
+            <div class="weather-widget glass flex items-center justify-between p-3 mx-4 mt-20 md:hidden rounded-xl z-10 relative">
+                <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-cloud-sun text-warning text-2xl"></i>
+                    <div>
+                        <strong>Tarde soleada en Ica</strong>
+                        <p class="text-xs text-muted">Tráfico ligero hacia la UTP</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <strong>24°C</strong>
+                </div>
+            </div>
+
+            <div class="safe-status glass mt-2">
                 <i class="fa-solid fa-shield-halved"></i>
                 <div class="status-text">
                     <strong>Todo seguro para tu viaje</strong>
@@ -104,9 +176,9 @@
                     </div>
                     <span>Solicitar</span>
                 </div>
-                <div class="nav-item">
-                    <i class="fa-regular fa-message"></i>
-                    <span>Mensajes</span>
+                <div class="nav-item" onclick="app.navigateTo('screen-friends')">
+                    <i class="fa-solid fa-user-group"></i>
+                    <span>Amigos</span>
                 </div>
                 <div class="nav-item" onclick="app.navigateTo('screen-profile')">
                     <i class="fa-regular fa-user"></i>
@@ -459,6 +531,29 @@
             <div class="university-content p-4 pt-24 h-full overflow-y-auto">
                 <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600&h=300&fit=crop" alt="Campus" class="w-full h-40 object-cover rounded-xl mb-4 shadow-sm">
                 
+                <!-- Directorio y Horarios (NUEVO) -->
+                <div class="flex gap-2 mb-4">
+                    <div class="flex-1 bg-white dark:bg-dark-card p-3 rounded-xl shadow-sm text-center border border-gray-100 dark:border-gray-800">
+                        <i class="fa-solid fa-bus text-primary text-2xl mb-2"></i>
+                        <strong class="block text-sm">Horario Buses</strong>
+                        <p class="text-xs text-muted">Próximo: 15 min</p>
+                    </div>
+                    <div class="flex-1 bg-white dark:bg-dark-card p-3 rounded-xl shadow-sm text-center border border-gray-100 dark:border-gray-800">
+                        <i class="fa-solid fa-address-book text-blue-500 text-2xl mb-2"></i>
+                        <strong class="block text-sm">Directorio</strong>
+                        <p class="text-xs text-muted">Contactos UTP</p>
+                    </div>
+                </div>
+
+                <!-- Noticias UTP (NUEVO) -->
+                <div class="bg-blue-50 dark:bg-dark-card p-3 rounded-xl mb-6 border-l-4 border-blue-500 flex items-start gap-3">
+                    <i class="fa-solid fa-bullhorn text-blue-500 mt-1"></i>
+                    <div>
+                        <strong class="text-sm">Feria de Ciencias UTP</strong>
+                        <p class="text-xs text-muted">Este viernes en el patio principal. ¡Habrá taxis exclusivos desde las 6pm!</p>
+                    </div>
+                </div>
+
                 <h3 class="mb-2">Zonas de Abordaje Seguro</h3>
                 <div class="flex flex-col gap-2 mb-6">
                     <div class="p-3 bg-white dark:bg-dark-card rounded-lg shadow-sm border-l-4 border-primary">
@@ -496,29 +591,56 @@
                 <p class="text-center text-sm text-muted mb-6">Presiona este botón solo en caso de emergencia real. Notificará a la policía y a tus contactos.</p>
                 
                 <div class="w-full flex flex-col gap-3">
+                    <h3 class="text-left mt-2 mb-1">Emergencias Oficiales</h3>
                     <a href="tel:105" class="flex items-center gap-4 p-4 bg-white dark:bg-dark-card rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 text-inherit no-underline">
                         <div class="w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex justify-center items-center text-xl"><i class="fa-solid fa-building-shield"></i></div>
                         <div>
                             <strong>Policía Nacional</strong>
-                            <p class="text-xs text-muted">105</p>
+                            <p class="text-xs text-muted">Llamada inmediata al 105</p>
                         </div>
                     </a>
-                    <a href="tel:116" class="flex items-center gap-4 p-4 bg-white dark:bg-dark-card rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 text-inherit no-underline">
-                        <div class="w-12 h-12 rounded-full bg-red-100 text-red-600 flex justify-center items-center text-xl"><i class="fa-solid fa-fire-extinguisher"></i></div>
-                        <div>
-                            <strong>Bomberos</strong>
-                            <p class="text-xs text-muted">116</p>
-                        </div>
-                    </a>
-                    <div class="flex items-center justify-between p-4 bg-white dark:bg-dark-card rounded-xl shadow-sm border border-gray-100 dark:border-gray-800">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-primary-light text-primary flex justify-center items-center text-xl"><i class="fa-solid fa-user-shield"></i></div>
+                    
+                    <h3 class="text-left mt-4 mb-1">Comunidad y Red de Apoyo</h3>
+                    
+                    <!-- Reportes Comunitarios (NUEVO) -->
+                    <div class="bg-orange-50 dark:bg-dark-card p-3 rounded-xl border-l-4 border-warning flex items-center justify-between shadow-sm cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-warning bg-opacity-20 text-warning flex justify-center items-center"><i class="fa-solid fa-triangle-exclamation"></i></div>
                             <div>
-                                <strong>Contactos de Confianza</strong>
-                                <p class="text-xs text-muted">Mamá, Hermano</p>
+                                <strong class="text-sm">Alertas de Zona (2 Hoy)</strong>
+                                <p class="text-xs text-muted">Tráfico denso en Av. San Martín</p>
                             </div>
                         </div>
                         <i class="fa-solid fa-chevron-right text-muted"></i>
+                    </div>
+
+                    <div class="flex flex-col bg-white dark:bg-dark-card rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 mt-2 overflow-hidden">
+                        <div class="flex items-center justify-between p-4 border-b border-gray-100 dark:border-gray-800">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-primary-light text-primary flex justify-center items-center text-xl"><i class="fa-solid fa-user-shield"></i></div>
+                                <div>
+                                    <strong>Contactos de Confianza</strong>
+                                    <p class="text-xs text-muted">Se les notificará tu ruta SOS</p>
+                                </div>
+                            </div>
+                            <button class="text-primary"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                        <div class="p-4 flex flex-col gap-3 bg-gray-50 dark:bg-gray-900 bg-opacity-50">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <img src="https://ui-avatars.com/api/?name=Mama&background=random" class="w-8 h-8 rounded-full">
+                                    <span class="text-sm">Mamá</span>
+                                </div>
+                                <i class="fa-solid fa-ellipsis-vertical text-muted"></i>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <img src="https://ui-avatars.com/api/?name=Hermano&background=random" class="w-8 h-8 rounded-full">
+                                    <span class="text-sm">Hermano Luis</span>
+                                </div>
+                                <i class="fa-solid fa-ellipsis-vertical text-muted"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -538,30 +660,65 @@
                     <p class="text-muted">Estudiante de Administración UTP</p>
                 </div>
                 
+                <!-- Estadísticas (NUEVO) -->
+                <div class="flex gap-2 mb-6">
+                    <div class="flex-1 bg-white dark:bg-dark-card p-3 rounded-xl shadow-sm text-center border border-gray-100 dark:border-gray-800">
+                        <strong class="text-xl text-primary block">14</strong>
+                        <span class="text-xs text-muted">Viajes este mes</span>
+                    </div>
+                    <div class="flex-1 bg-white dark:bg-dark-card p-3 rounded-xl shadow-sm text-center border border-gray-100 dark:border-gray-800">
+                        <strong class="text-xl text-success block">5</strong>
+                        <span class="text-xs text-muted">Viajes compartidos</span>
+                    </div>
+                    <div class="flex-1 bg-white dark:bg-dark-card p-3 rounded-xl shadow-sm text-center border border-gray-100 dark:border-gray-800">
+                        <strong class="text-xl text-warning block">4.9</strong>
+                        <span class="text-xs text-muted">Tu calificación</span>
+                    </div>
+                </div>
+
+                <!-- Insignias y Huella de Carbono (NUEVO) -->
+                <div class="bg-green-50 dark:bg-dark-card p-4 rounded-xl mb-6 shadow-sm border border-green-100 dark:border-gray-800">
+                    <div class="flex justify-between items-center mb-3">
+                        <h4 class="text-success m-0"><i class="fa-solid fa-leaf"></i> Impacto Ambiental</h4>
+                    </div>
+                    <p class="text-sm text-muted mb-2">Has ahorrado <strong>12 kg de CO2</strong> al compartir viajes con tus amigos este semestre.</p>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                        <div class="bg-success h-2.5 rounded-full" style="width: 45%"></div>
+                    </div>
+                    <p class="text-xs text-right mt-1 text-muted">45% hacia nivel Eco-Lover</p>
+                </div>
+
                 <div class="flex flex-col gap-2">
                     <div class="profile-menu-item flex items-center justify-between p-4 bg-white dark:bg-dark-card rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 cursor-pointer" onclick="app.navigateTo('screen-rewards')">
                         <div class="flex items-center gap-3 text-main">
-                            <i class="fa-solid fa-gift text-primary"></i> <strong>Beneficios y Puntos</strong>
+                            <i class="fa-solid fa-gift text-primary text-xl w-6"></i> <strong>Beneficios y Puntos</strong>
                         </div>
                         <i class="fa-solid fa-chevron-right text-muted"></i>
                     </div>
                     
                     <div class="profile-menu-item flex items-center justify-between p-4 bg-white dark:bg-dark-card rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 cursor-pointer">
                         <div class="flex items-center gap-3 text-main">
-                            <i class="fa-solid fa-credit-card text-blue-500"></i> <strong>Métodos de Pago</strong>
+                            <i class="fa-solid fa-credit-card text-blue-500 text-xl w-6"></i> <strong>Métodos de Pago</strong>
                         </div>
                         <i class="fa-solid fa-chevron-right text-muted"></i>
+                    </div>
+
+                    <div class="profile-menu-item flex items-center justify-between p-4 bg-white dark:bg-dark-card rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 cursor-pointer">
+                        <div class="flex items-center gap-3 text-main">
+                            <i class="fa-solid fa-medal text-warning text-xl w-6"></i> <strong>Mis Insignias UTP</strong>
+                        </div>
+                        <span class="bg-warning text-white text-xs px-2 py-1 rounded-full">3 Nuevas</span>
                     </div>
                     
                     <div class="profile-menu-item flex items-center justify-between p-4 bg-white dark:bg-dark-card rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 cursor-pointer">
                         <div class="flex items-center gap-3 text-main">
-                            <i class="fa-solid fa-gear text-gray-500"></i> <strong>Configuración</strong>
+                            <i class="fa-solid fa-gear text-gray-500 text-xl w-6"></i> <strong>Configuración</strong>
                         </div>
                         <i class="fa-solid fa-chevron-right text-muted"></i>
                     </div>
                 </div>
                 
-                <button class="btn-text full-width mt-6 text-danger">Cerrar Sesión</button>
+                <button class="btn-text full-width mt-6 text-danger mb-8"><i class="fa-solid fa-arrow-right-from-bracket mr-2"></i> Cerrar Sesión</button>
             </div>
         </section>
 
@@ -574,16 +731,23 @@
             </header>
             <div class="explore-map-content h-full relative">
                 <!-- Interactive Map Background -->
-                <div class="map-bg active-map w-full h-full" style="background-image: radial-gradient(circle, var(--bg-light) 0%, #d4e6f1 100%);">
+                    <!-- Map Filters Overlay (NUEVO) -->
+                    <div class="absolute top-4 left-4 right-4 flex gap-2 overflow-x-auto pb-2 z-10 hide-scrollbar">
+                        <button class="bg-primary text-white px-4 py-2 rounded-full shadow-md text-sm whitespace-nowrap"><i class="fa-solid fa-car-side"></i> Taxis Libres</button>
+                        <button class="bg-white dark:bg-dark-card text-main px-4 py-2 rounded-full shadow-md text-sm whitespace-nowrap"><i class="fa-solid fa-shield-halved text-success"></i> Zonas Seguras</button>
+                        <button class="bg-white dark:bg-dark-card text-main px-4 py-2 rounded-full shadow-md text-sm whitespace-nowrap"><i class="fa-solid fa-bus text-blue-500"></i> Paraderos</button>
+                        <button class="bg-white dark:bg-dark-card text-main px-4 py-2 rounded-full shadow-md text-sm whitespace-nowrap"><i class="fa-solid fa-triangle-exclamation text-warning"></i> Reportes</button>
+                    </div>
+
                     <!-- Safe zone overlay -->
                     <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-success bg-opacity-20 rounded-full border-2 border-success flex justify-center items-center">
-                        <span class="bg-success text-white px-2 py-1 rounded text-xs">Zona UTP</span>
+                        <span class="bg-success text-white px-2 py-1 rounded text-xs shadow">Zona UTP Segura</span>
                     </div>
                     
                     <!-- Taxi markers -->
-                    <div class="absolute top-1/3 left-1/3 text-primary text-2xl drop-shadow-md animate-bounce"><i class="fa-solid fa-car-side"></i></div>
-                    <div class="absolute bottom-1/3 right-1/4 text-primary text-2xl drop-shadow-md"><i class="fa-solid fa-car-side"></i></div>
-                    <div class="absolute top-2/3 left-1/4 text-primary text-2xl drop-shadow-md"><i class="fa-solid fa-car-side"></i></div>
+                    <div class="absolute top-1/3 left-1/3 text-primary text-2xl drop-shadow-md animate-bounce cursor-pointer"><i class="fa-solid fa-car-side"></i></div>
+                    <div class="absolute bottom-1/3 right-1/4 text-primary text-2xl drop-shadow-md cursor-pointer"><i class="fa-solid fa-car-side"></i></div>
+                    <div class="absolute top-2/3 left-1/4 text-primary text-2xl drop-shadow-md cursor-pointer"><i class="fa-solid fa-car-side"></i></div>
                 </div>
                 
                 <div class="absolute bottom-0 left-0 w-full p-4 bg-white dark:bg-dark-card rounded-t-3xl shadow-lg border-t border-gray-100 dark:border-gray-800">
@@ -591,6 +755,92 @@
                     <p class="text-sm text-muted mb-4">Todas las conductoras están verificadas.</p>
                     <button class="btn-primary full-width" onclick="app.navigateTo('screen-destination')">Solicitar Viaje Aquí</button>
                 </div>
+            </div>
+        </section>
+
+    </div>
+        </section>
+
+        <!-- Screen: Friends Directory (NUEVO) -->
+        <section id="screen-friends" class="screen">
+            <header class="app-header simple-header glass">
+                <button class="back-btn" onclick="app.navigateTo('screen-home')"><i class="fa-solid fa-arrow-left"></i></button>
+                <h2>Mis Amigos</h2>
+                <button class="help-btn text-primary"><i class="fa-solid fa-user-plus"></i></button>
+            </header>
+            <div class="friends-content p-4 pt-24 h-full overflow-y-auto">
+                <div class="bg-white dark:bg-dark-card rounded-full p-2 flex items-center shadow-sm border border-gray-100 dark:border-gray-800 mb-6">
+                    <i class="fa-solid fa-search text-muted ml-3"></i>
+                    <input type="text" placeholder="Buscar amigos de la facultad..." class="bg-transparent border-none outline-none w-full px-3 py-1 text-main">
+                </div>
+
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-sm text-muted uppercase tracking-wider m-0">Conectados Ahora</h3>
+                    <span class="bg-success text-white text-xs px-2 py-1 rounded-full">3 activos</span>
+                </div>
+
+                <div class="flex flex-col gap-3 mb-6">
+                    <!-- Friend 1 -->
+                    <div class="bg-white dark:bg-dark-card p-3 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center gap-3">
+                                <div class="relative">
+                                    <img src="https://ui-avatars.com/api/?name=Sofia+P&background=E83D6F&color=fff" alt="Friend" class="w-12 h-12 rounded-full">
+                                    <span class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-success border-2 border-white dark:border-gray-800 rounded-full"></span>
+                                </div>
+                                <div>
+                                    <strong class="text-main">Sofia Perez</strong>
+                                    <p class="text-xs text-primary font-medium"><i class="fa-solid fa-map-pin"></i> En UTP Ica (Biblioteca)</p>
+                                </div>
+                            </div>
+                            <button class="w-10 h-10 rounded-full bg-gray-50 dark:bg-gray-800 flex justify-center items-center text-primary"><i class="fa-regular fa-comment"></i></button>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="flex-1 bg-primary text-white py-2 rounded-lg text-sm font-medium"><i class="fa-solid fa-taxi mr-1"></i> Pedir Taxi Juntas</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Friend 2 -->
+                    <div class="bg-white dark:bg-dark-card p-3 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center gap-3">
+                                <div class="relative">
+                                    <img src="https://ui-avatars.com/api/?name=Luis+A&background=FFB6C1&color=C2185B" alt="Friend" class="w-12 h-12 rounded-full">
+                                    <span class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-warning border-2 border-white dark:border-gray-800 rounded-full"></span>
+                                </div>
+                                <div>
+                                    <strong class="text-main">Luis Alarcon</strong>
+                                    <p class="text-xs text-warning font-medium"><i class="fa-solid fa-car-side"></i> En viaje (Llega en 5m)</p>
+                                </div>
+                            </div>
+                            <button class="w-10 h-10 rounded-full bg-gray-50 dark:bg-gray-800 flex justify-center items-center text-primary"><i class="fa-regular fa-comment"></i></button>
+                        </div>
+                        <div class="bg-warning bg-opacity-20 p-2 rounded text-xs text-center text-main">
+                            Compartiendo viaje con Carla T.
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-sm text-muted uppercase tracking-wider mb-3">Todos (24)</h3>
+                
+                <div class="flex flex-col gap-2">
+                    <div class="flex items-center gap-3 p-2">
+                        <img src="https://ui-avatars.com/api/?name=Maria+C&background=random" alt="Friend" class="w-10 h-10 rounded-full grayscale opacity-70">
+                        <div>
+                            <strong class="text-main text-sm">Maria Castro</strong>
+                            <p class="text-xs text-muted">Ing. Civil • Desconectada</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 p-2">
+                        <img src="https://ui-avatars.com/api/?name=Juan+P&background=random" alt="Friend" class="w-10 h-10 rounded-full grayscale opacity-70">
+                        <div>
+                            <strong class="text-main text-sm">Juan Perez</strong>
+                            <p class="text-xs text-muted">Arquitectura • Desconectado</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="h-20"></div> <!-- padding bottom for nav -->
             </div>
         </section>
 
