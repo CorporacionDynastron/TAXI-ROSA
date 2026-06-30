@@ -46,8 +46,12 @@
             </header>
             
             <!-- Desktop Sidebar Left: Quick Friends -->
-            <aside class="desktop-sidebar hidden md:flex flex-col gap-4 p-4 glass absolute left-4 top-24 bottom-24 w-64 rounded-2xl z-10 overflow-y-auto">
-                <h3 class="text-main mb-2"><i class="fa-solid fa-user-group text-primary"></i> Amigos Activos</h3>
+            <aside class="desktop-sidebar hidden md:flex flex-col gap-4 p-4 glass absolute left-4 top-24 bottom-24 w-64 rounded-2xl z-10 overflow-y-auto transition-all" id="sidebar-friends">
+                <h3 class="text-main mb-0 flex items-center justify-between cursor-pointer" onclick="app.toggleSidebar('sidebar-friends-content', 'icon-friends-toggle')">
+                    <span><i class="fa-solid fa-user-group text-primary"></i> Amigos Activos</span>
+                    <i id="icon-friends-toggle" class="fa-solid fa-chevron-up text-muted text-sm transition" style="transform: rotate(0deg);"></i>
+                </h3>
+                <div id="sidebar-friends-content" class="flex flex-col gap-4">
                 <div class="bg-white dark:bg-dark-card p-3 rounded-xl shadow-sm flex items-center justify-between cursor-pointer" onclick="app.navigateTo('screen-friends')">
                     <div class="flex items-center gap-3">
                         <div class="relative">
@@ -75,11 +79,16 @@
                 <div class="bg-primary-light bg-opacity-20 p-3 rounded-xl text-center cursor-pointer mt-auto" onclick="app.navigateTo('screen-friends')">
                     <strong class="text-primary text-sm">Ver todos los amigos</strong>
                 </div>
+                </div>
             </aside>
 
             <!-- Desktop Sidebar Right: Favorite Drivers -->
-            <aside class="desktop-sidebar hidden md:flex flex-col gap-4 p-4 glass absolute right-4 top-24 bottom-24 w-64 rounded-2xl z-10 overflow-y-auto">
-                <h3 class="text-main mb-2"><i class="fa-solid fa-star text-warning"></i> Conductoras Fav</h3>
+            <aside class="desktop-sidebar hidden md:flex flex-col gap-4 p-4 glass absolute right-4 top-24 bottom-24 w-64 rounded-2xl z-10 overflow-y-auto transition-all" id="sidebar-drivers">
+                <h3 class="text-main mb-0 flex items-center justify-between cursor-pointer" onclick="app.toggleSidebar('sidebar-drivers-content', 'icon-drivers-toggle')">
+                    <span><i class="fa-solid fa-star text-warning"></i> Conductoras Fav</span>
+                    <i id="icon-drivers-toggle" class="fa-solid fa-chevron-up text-muted text-sm transition" style="transform: rotate(0deg);"></i>
+                </h3>
+                <div id="sidebar-drivers-content" class="flex flex-col gap-4">
                 <div class="bg-white dark:bg-dark-card p-3 rounded-xl shadow-sm flex items-center justify-between">
                     <div class="flex items-center gap-3">
                         <img src="https://ui-avatars.com/api/?name=Rosa+M&background=E83D6F&color=fff" alt="Driver" class="w-10 h-10 rounded-full">
@@ -99,6 +108,7 @@
                         </div>
                     </div>
                     <button class="btn-small bg-primary text-white px-2 py-1 rounded-full text-xs"><i class="fa-solid fa-taxi"></i></button>
+                </div>
                 </div>
             </aside>
 

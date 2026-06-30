@@ -81,6 +81,22 @@ const app = {
         } else {
             icon.classList.replace('fa-sun', 'fa-moon');
         }
+    },
+    
+    toggleSidebar(contentId, iconId) {
+        const content = document.getElementById(contentId);
+        const icon = document.getElementById(iconId);
+        if (content && icon) {
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                content.classList.add('flex');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.classList.add('hidden');
+                content.classList.remove('flex');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
     }
 };
 document.addEventListener('DOMContentLoaded', () => {
