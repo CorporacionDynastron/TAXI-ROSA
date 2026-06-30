@@ -67,13 +67,13 @@
                         <div class="icon-circle"><i class="fa-solid fa-house"></i></div>
                         <span>Casa</span>
                     </div>
-                    <div class="action-item">
+                    <div class="action-item" onclick="app.navigateTo('screen-university')">
                         <div class="icon-circle"><i class="fa-solid fa-graduation-cap"></i></div>
                         <span>Universidad</span>
                     </div>
-                    <div class="action-item">
-                        <div class="icon-circle"><i class="fa-solid fa-star"></i></div>
-                        <span>Favoritos</span>
+                    <div class="action-item" onclick="app.navigateTo('screen-explore-map')">
+                        <div class="icon-circle"><i class="fa-solid fa-map-location-dot"></i></div>
+                        <span>Mapa</span>
                     </div>
                     <div class="action-item" onclick="app.navigateTo('screen-history')">
                         <div class="icon-circle"><i class="fa-regular fa-clock"></i></div>
@@ -94,7 +94,7 @@
                     <i class="fa-solid fa-house"></i>
                     <span>Inicio</span>
                 </div>
-                <div class="nav-item">
+                <div class="nav-item" onclick="app.navigateTo('screen-safety')">
                     <i class="fa-solid fa-shield-halved"></i>
                     <span>Seguridad</span>
                 </div>
@@ -108,7 +108,7 @@
                     <i class="fa-regular fa-message"></i>
                     <span>Mensajes</span>
                 </div>
-                <div class="nav-item" onclick="app.navigateTo('screen-rewards')">
+                <div class="nav-item" onclick="app.navigateTo('screen-profile')">
                     <i class="fa-regular fa-user"></i>
                     <span>Perfil</span>
                 </div>
@@ -150,9 +150,8 @@
                         <strong>¿Deseas compartir este viaje?</strong>
                         <p>Encontramos estudiantes con una ruta similar.</p>
                     </div>
-                    <div class="toggle-switch">
-                        <input type="checkbox" id="match-toggle" checked>
-                        <label for="match-toggle"></label>
+                    <div class="toggle-switch" onclick="app.navigateTo('screen-shared-ride')">
+                        <button class="btn-small">Ver Amigos <i class="fa-solid fa-arrow-right"></i></button>
                     </div>
                 </div>
                 <div class="trip-summary">
@@ -402,6 +401,195 @@
                 
                 <div class="camera-controls">
                     <button class="btn-primary full-width" style="background:var(--danger);" onclick="app.finishTrip()">ALERTA SOS</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screen: Shared Ride -->
+        <section id="screen-shared-ride" class="screen">
+            <header class="app-header simple-header glass">
+                <button class="back-btn" onclick="app.navigateTo('screen-destination')"><i class="fa-solid fa-arrow-left"></i></button>
+                <h2>Viaje Compartido</h2>
+                <div style="width:40px;"></div>
+            </header>
+            <div class="shared-ride-content p-4 pt-24 h-full overflow-y-auto">
+                <div class="text-center mb-4">
+                    <i class="fa-solid fa-user-group text-primary text-4xl mb-2"></i>
+                    <h3>Comparte y Ahorra</h3>
+                    <p class="text-sm text-muted">Estudiantes de la UTP en tu misma ruta.</p>
+                </div>
+                
+                <div class="friend-list flex flex-col gap-3">
+                    <div class="friend-card bg-white dark:bg-dark-card p-3 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <img src="https://ui-avatars.com/api/?name=Sofia+P&background=E83D6F&color=fff" alt="Friend" class="w-10 h-10 rounded-full">
+                            <div>
+                                <strong>Sofia P.</strong>
+                                <p class="text-xs text-muted">Ing. de Sistemas - Destino cercano</p>
+                            </div>
+                        </div>
+                        <button class="btn-small bg-primary text-white px-3 py-1 rounded-full text-xs">Invitar</button>
+                    </div>
+                    <div class="friend-card bg-white dark:bg-dark-card p-3 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <img src="https://ui-avatars.com/api/?name=Camila+L&background=FFB6C1&color=C2185B" alt="Friend" class="w-10 h-10 rounded-full">
+                            <div>
+                                <strong>Camila L.</strong>
+                                <p class="text-xs text-muted">Arquitectura - Misma ruta</p>
+                            </div>
+                        </div>
+                        <button class="btn-small bg-primary text-white px-3 py-1 rounded-full text-xs">Invitar</button>
+                    </div>
+                </div>
+                
+                <div class="mt-6 p-4 bg-primary-light bg-opacity-10 rounded-xl text-center">
+                    <strong>Tarifa estimada dividida: S/ 3.50 c/u</strong>
+                </div>
+                <button class="btn-primary full-width mt-4" onclick="app.navigateTo('screen-destination')">Listo</button>
+            </div>
+        </section>
+
+        <!-- Screen: University Info -->
+        <section id="screen-university" class="screen">
+            <header class="app-header simple-header glass">
+                <button class="back-btn" onclick="app.navigateTo('screen-home')"><i class="fa-solid fa-arrow-left"></i></button>
+                <h2>Sede UTP Ica</h2>
+                <div style="width:40px;"></div>
+            </header>
+            <div class="university-content p-4 pt-24 h-full overflow-y-auto">
+                <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600&h=300&fit=crop" alt="Campus" class="w-full h-40 object-cover rounded-xl mb-4 shadow-sm">
+                
+                <h3 class="mb-2">Zonas de Abordaje Seguro</h3>
+                <div class="flex flex-col gap-2 mb-6">
+                    <div class="p-3 bg-white dark:bg-dark-card rounded-lg shadow-sm border-l-4 border-primary">
+                        <strong><i class="fa-solid fa-location-dot text-primary"></i> Puerta Principal (Av. Ayabaca)</strong>
+                        <p class="text-xs text-muted">Cámaras activas y personal de seguridad 24/7.</p>
+                    </div>
+                    <div class="p-3 bg-white dark:bg-dark-card rounded-lg shadow-sm border-l-4 border-primary">
+                        <strong><i class="fa-solid fa-location-dot text-primary"></i> Estacionamiento Sur</strong>
+                        <p class="text-xs text-muted">Zona de recojo de taxis autorizados.</p>
+                    </div>
+                </div>
+                
+                <h3 class="mb-2">Tips de Seguridad Universitaria</h3>
+                <ul class="text-sm text-muted list-disc pl-5">
+                    <li>Solicita el taxi antes de salir del campus.</li>
+                    <li>Revisa la placa y nombre de la conductora.</li>
+                    <li>Utiliza el botón SOS en caso de desvío de ruta.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Screen: Safety Center -->
+        <section id="screen-safety" class="screen">
+            <header class="app-header simple-header glass">
+                <button class="back-btn" onclick="app.navigateTo('screen-home')"><i class="fa-solid fa-arrow-left"></i></button>
+                <h2>Centro de Seguridad</h2>
+                <div style="width:40px;"></div>
+            </header>
+            <div class="safety-content p-4 pt-24 h-full overflow-y-auto flex flex-col items-center">
+                
+                <button class="w-40 h-40 rounded-full bg-danger text-white shadow-lg flex flex-col justify-center items-center mb-6 transform transition hover:scale-105" style="box-shadow: 0 10px 25px rgba(255,0,0,0.5);">
+                    <i class="fa-solid fa-bell text-5xl mb-2"></i>
+                    <strong class="text-xl">SOS</strong>
+                </button>
+                <p class="text-center text-sm text-muted mb-6">Presiona este botón solo en caso de emergencia real. Notificará a la policía y a tus contactos.</p>
+                
+                <div class="w-full flex flex-col gap-3">
+                    <a href="tel:105" class="flex items-center gap-4 p-4 bg-white dark:bg-dark-card rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 text-inherit no-underline">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex justify-center items-center text-xl"><i class="fa-solid fa-building-shield"></i></div>
+                        <div>
+                            <strong>Policía Nacional</strong>
+                            <p class="text-xs text-muted">105</p>
+                        </div>
+                    </a>
+                    <a href="tel:116" class="flex items-center gap-4 p-4 bg-white dark:bg-dark-card rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 text-inherit no-underline">
+                        <div class="w-12 h-12 rounded-full bg-red-100 text-red-600 flex justify-center items-center text-xl"><i class="fa-solid fa-fire-extinguisher"></i></div>
+                        <div>
+                            <strong>Bomberos</strong>
+                            <p class="text-xs text-muted">116</p>
+                        </div>
+                    </a>
+                    <div class="flex items-center justify-between p-4 bg-white dark:bg-dark-card rounded-xl shadow-sm border border-gray-100 dark:border-gray-800">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-primary-light text-primary flex justify-center items-center text-xl"><i class="fa-solid fa-user-shield"></i></div>
+                            <div>
+                                <strong>Contactos de Confianza</strong>
+                                <p class="text-xs text-muted">Mamá, Hermano</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-muted"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screen: Profile -->
+        <section id="screen-profile" class="screen">
+            <header class="app-header simple-header glass">
+                <button class="back-btn" onclick="app.navigateTo('screen-home')"><i class="fa-solid fa-arrow-left"></i></button>
+                <h2>Mi Perfil</h2>
+                <div style="width:40px;"></div>
+            </header>
+            <div class="profile-content p-4 pt-24 h-full overflow-y-auto">
+                <div class="text-center mb-6">
+                    <img src="https://ui-avatars.com/api/?name=Valeria+R&background=FFB6C1&color=E83D6F" alt="User" class="w-24 h-24 rounded-full mx-auto shadow-md mb-3 border-4 border-white dark:border-dark-card">
+                    <h3>Valeria R.</h3>
+                    <p class="text-muted">Estudiante de Administración UTP</p>
+                </div>
+                
+                <div class="flex flex-col gap-2">
+                    <div class="profile-menu-item flex items-center justify-between p-4 bg-white dark:bg-dark-card rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 cursor-pointer" onclick="app.navigateTo('screen-rewards')">
+                        <div class="flex items-center gap-3 text-main">
+                            <i class="fa-solid fa-gift text-primary"></i> <strong>Beneficios y Puntos</strong>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-muted"></i>
+                    </div>
+                    
+                    <div class="profile-menu-item flex items-center justify-between p-4 bg-white dark:bg-dark-card rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 cursor-pointer">
+                        <div class="flex items-center gap-3 text-main">
+                            <i class="fa-solid fa-credit-card text-blue-500"></i> <strong>Métodos de Pago</strong>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-muted"></i>
+                    </div>
+                    
+                    <div class="profile-menu-item flex items-center justify-between p-4 bg-white dark:bg-dark-card rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 cursor-pointer">
+                        <div class="flex items-center gap-3 text-main">
+                            <i class="fa-solid fa-gear text-gray-500"></i> <strong>Configuración</strong>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-muted"></i>
+                    </div>
+                </div>
+                
+                <button class="btn-text full-width mt-6 text-danger">Cerrar Sesión</button>
+            </div>
+        </section>
+
+        <!-- Screen: Explore Map -->
+        <section id="screen-explore-map" class="screen">
+            <header class="app-header simple-header glass">
+                <button class="back-btn" onclick="app.navigateTo('screen-home')"><i class="fa-solid fa-arrow-left"></i></button>
+                <h2>Mapa Seguro</h2>
+                <div style="width:40px;"></div>
+            </header>
+            <div class="explore-map-content h-full relative">
+                <!-- Interactive Map Background -->
+                <div class="map-bg active-map w-full h-full" style="background-image: radial-gradient(circle, var(--bg-light) 0%, #d4e6f1 100%);">
+                    <!-- Safe zone overlay -->
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-success bg-opacity-20 rounded-full border-2 border-success flex justify-center items-center">
+                        <span class="bg-success text-white px-2 py-1 rounded text-xs">Zona UTP</span>
+                    </div>
+                    
+                    <!-- Taxi markers -->
+                    <div class="absolute top-1/3 left-1/3 text-primary text-2xl drop-shadow-md animate-bounce"><i class="fa-solid fa-car-side"></i></div>
+                    <div class="absolute bottom-1/3 right-1/4 text-primary text-2xl drop-shadow-md"><i class="fa-solid fa-car-side"></i></div>
+                    <div class="absolute top-2/3 left-1/4 text-primary text-2xl drop-shadow-md"><i class="fa-solid fa-car-side"></i></div>
+                </div>
+                
+                <div class="absolute bottom-0 left-0 w-full p-4 bg-white dark:bg-dark-card rounded-t-3xl shadow-lg border-t border-gray-100 dark:border-gray-800">
+                    <h3 class="mb-2">3 Taxis disponibles cerca</h3>
+                    <p class="text-sm text-muted mb-4">Todas las conductoras están verificadas.</p>
+                    <button class="btn-primary full-width" onclick="app.navigateTo('screen-destination')">Solicitar Viaje Aquí</button>
                 </div>
             </div>
         </section>
