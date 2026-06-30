@@ -1144,24 +1144,24 @@ body.dark-mode .dark\:bg-gray-900 { background-color: #111827; }
     .md\:mt-24 { margin-top: 96px; }
     .bottom-sheet {
         width: 400px;
-        left: 40px;
+        left: 50%;
+        transform: translateX(-50%);
         bottom: 120px !important;
         border-radius: var(--radius-xl);
         box-shadow: var(--shadow-lg);
     }
     .bottom-nav {
         width: 400px;
-        left: 40px;
-        transform: none;
+        left: 50%;
+        transform: translateX(-50%);
         border-radius: 40px;
         bottom: 20px;
     }
     .safe-status {
-        top: 40px;
+        top: 100px;
         width: 400px;
-        left: auto;
-        right: 40px;
-        transform: none;
+        left: 50%;
+        transform: translateX(-50%);
     }
     .app-header {
         padding: 30px 40px;
@@ -1171,9 +1171,9 @@ body.dark-mode .dark\:bg-gray-900 { background-color: #111827; }
     }
     .live-monitoring {
         top: 100px;
-        left: auto;
-        right: 40px;
-        transform: none;
+        width: 400px;
+        left: 50%;
+        transform: translateX(-50%);
     }
     .arrival-content {
         max-width: 500px;
